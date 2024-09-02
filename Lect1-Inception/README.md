@@ -7,10 +7,9 @@
 
 ```javascript
 <script>
-  // To write inside root using JavaScript const root =
-  document.getElementById("root"); // Selection of root element const h1 =
-  document.createElement("h1"); // Creation of h1 h1.textContent = "Namaste
-  React"; // Adding textContent root.appendChild(h1); // Appending to root
+  const root = document.getElementById("root"); const h1 =
+  document.createElement("h1"); h1.textContent = "Namaste React";
+  root.appendChild(h1);
 </script>
 ```
 
