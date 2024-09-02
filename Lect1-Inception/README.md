@@ -5,10 +5,11 @@
 - First, we started with normal HTML and then wrote `<h1>Namaste React</h1>` inside the root element.
 - Then Akshay showed us how to do the same thing with JavaScript. Below is the code to add `<h1>Namaste React</h1>` inside the root element.
 
-```javascript
+```html
 <script>
-  const root = document.getElementById("root"); const h1 =
-  document.createElement("h1"); h1.textContent = "Namaste React";
+  const root = document.getElementById("root");
+  const h1 = document.createElement("h1");
+  h1.textContent = "Namaste React";
   root.appendChild(h1);
 </script>
 ```
