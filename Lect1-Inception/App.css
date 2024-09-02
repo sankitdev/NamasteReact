@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+}
+
+div {
+  border: 1px solid greenyellow;
+  text-align: center;
+  padding: 1rem;
+}
+
+h1 {
+  font-weight: 400;
+}
