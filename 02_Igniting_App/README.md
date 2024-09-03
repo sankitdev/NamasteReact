@@ -45,9 +45,12 @@ With this, we are initializing npm for our project, which will give us a `packag
 
 ## Why do we need npm?
 
-- **Access to Powerful Tools**: While working with React or any other library, there are many helper packages (or "superpowers") that can greatly enhance your web app's functionality. npm allows you to easily install these packages, integrating powerful tools into your project with just a few commands.
+- **Access to Powerful Tools**: While working with React or any other library, there are many helper packages (or "superpowers") that can greatly enhance your web app's functionality.
+- npm allows you to easily install these packages, integrating powerful tools into your project with just a few commands.
 
-- **Core for Managing Libraries**: npm is essential for managing the libraries and packages in your web app. It handles the installation, updating, and removal of dependencies, ensuring your project stays organized and up-to-date. It also helps manage different versions of dependencies, resolving conflicts, and ensuring compatibility.
+- **Core for Managing Libraries**: npm is essential for managing the libraries and packages in your web app.
+- It handles the installation, updating, and removal of dependencies, ensuring your project stays organized and up-to-date.
+- It also helps manage different versions of dependencies, resolving conflicts, and ensuring compatibility.
 
 After doing `npm init` and setting up our `package.json`, we need to set up Parcel.
 
@@ -116,17 +119,18 @@ Now when we do `npm init` we get `package.json` along with this we also get `pac
 
 ### package.json vs package-lock.json
 
-- **package.json**
+**package.json**
 
-  - Contains all the installed dependencies and devDependencies that our project needs, as well as other information like project metadata (name, version, etc.).
-  - Includes scripts to run our files and allows specifying other settings like types.
-  - Lists module versions with tilde (`~`) or caret (`^`), which specify version ranges that can be updated when we explicitly run commands like `npm update` or install a new package version. However, this doesn’t happen automatically without action, and later we may not know the exact version of a package that was originally installed.
+- Contains all the installed dependencies and devDependencies that our project needs, as well as other information like project metadata (name, version, etc.).
+- Includes scripts to run our files and allows specifying other settings like types.
+- Lists module versions with tilde (`~`) or caret (`^`), which specify version ranges that can be updated when we explicitly run commands like `npm update` or install a new package version.
 
-- **package-lock.json**
-  - Contains all the dependencies of dependencies (sub-dependencies). For example, if Parcel is a devDependency, it may rely on many other packages, and those packages may rely on others as well. `package-lock.json` records the entire dependency tree.
-  - Lists the exact versions of every package and sub-package that is installed, ensuring that the same versions are used across different environments.
-  - This file ensures that every time the project is installed, the same versions of packages are used, maintaining consistency across different environments.
-  - Prevents issues related to version discrepancies by locking dependencies to specific versions and speeds up subsequent installs by avoiding the need to recalculate dependencies.
+**package-lock.json**
+
+- Contains all the dependencies of dependencies (sub-dependencies).
+- For example, if Parcel is a devDependency, it may rely on many other packages, and those packages may rely on others as well. `package-lock.json` records the entire dependency tree.
+- Lists the exact versions of every package and sub-package that is installed.
+- This file ensures that every time the project is installed, the same versions of packages are used, maintaining consistency across different environments.
 
 ## Question by Akshay: Should We Add `node_modules` to Our Git?
 
@@ -187,13 +191,15 @@ Now we are ready to start our development server. To start just write the below 
 
 **Example by Akshay to Understand This:**
 
-- If React is **ModiJi**, then **Amit Shah** represents the bundler. The `node_modules` are like other ministers who help **Amit Shah** and **ModiJi** with the processes required. So **Amit Shah** (bundler) is depend on other pacakges and then those pacakges would depend on some other package. This is known as `Transitive Dependency`
+- If _React_ is **ModiJi**, then **Amit Shah** represents the _bundler_.
+- The `node_modules` are like other ministers who help **Amit Shah** with the processes required.
+- So **Amit Shah** (bundler) is depend on other pacakges and then those pacakges would depend on some other package. This is also known as `Transitive Dependency`
 - VS Code is Ratan Tata (some guy said).🤣
 
 **Answer to tell to interviewer by Akshay**
 
 - When we are building a production-ready app, we need to do a lot of things.
-- Which are these things? Bundling, minification, image optimization, hashing, differential bundling, so many things we have to do, and we can't do this alone.
+- Bundling, minification, image optimization, hashing, differential bundling, so many things we have to do, and we can't do this alone.
 - We need some dependencies on it. When we need dependencies, those dependencies are also dependent on something else. This is a dependency tree. That is called `Transitive Dependency`
 
 There is a `browserslist` package that help to make our website support to older browser too.
