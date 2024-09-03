@@ -6,9 +6,9 @@ Here is the course link [NamasteReact](https://namastedev.com/learn/namaste-reac
 
 The **NamasteReact** project aims to provide a practical and hands-on approach to learning React by covering the following key topics:
 
-- [Chapter-1. Inception](./Lect1-Inception/README.md)
-- [Chapter-2. Igniting our App]()
-- [Chapter-3. Laying the Foundation]()
+- [Inception](./01_Inception/README.md)
+- [Igniting our App](./02_Igniting_App/README.md)
+- [Laying the Foundation](./03_Laying_Foundation/README.md)
 - [Talk is Cheap, show me the code]()
 - [Let's get Hooked!!]()
 - [Exploring the world]()
