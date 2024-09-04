@@ -7,14 +7,15 @@
 - When we specify a `browserslist` configuration, Babel uses it to determine which JavaScript features need to be transpiled (converted to an older, more widely supported syntax) to ensure compatibility with the specified browsers.
 - This means Babel will transform modern JavaScript features (like arrow functions, `const`, `let`, etc.) into versions that older browsers can understand and execute.
 
-````javascript
+```javascript
 // Modern Code (ES6+):
 const add = (a, b) => a + b;
 
 // Transpiled Code (ES5):
-var add = function(a, b) {
+var add = function (a, b) {
   return a + b;
 };
+```
 
 **Polyfills** 🧩
 
@@ -32,9 +33,9 @@ if (myArray.includes(5)) {
 if (polyfill_includes(myArray, 5)) {
   // ... do something
 }
-````
+```
 
-### 💡 Important Note:
+### 💡Important Note:
 
 - When we write `last 10 Chrome versions`, it doesn't mean our web app will _only_ support the last 10 Chrome versions.
 - It will support all browsers, but it _will definitely_ support the `last 10 Chrome versions.`

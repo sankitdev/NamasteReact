@@ -1,10 +1,10 @@
-# 04. Talk is cheap Show me the Code
+# 04. Talk is Cheap, Show Me the Code 💻
 
 - Now its time to build something tangible. In all previous lectures Akshay emphasized on building the Foundation.
 - Its time to take those knowledge and build something.
 - Akshay decided to go with Food Ordering App aka Swiggy Clone.
 
-## Before making any project
+## Before Making Any Project 🛠️
 
 - Before making any web app we must have wireframe in mind.
 - How will it look? And other planning. For example I created below wireframe for my app (inspired by Swiggy)
@@ -31,7 +31,7 @@
 
 - Above example is just a outline for our app. But it could have much more complex strucutres.
 
-Lets Talk about JSX
+### Let's Talk About JSX ✨
 
 - We talk about JSX in last lecture as well but in this lecture something were discussed
 
@@ -79,30 +79,6 @@ function MyComponent() {
 
 - JSX returns a single object representing the UI tree 🌳.
 - JSX Ensures components are valid trees with one root node, essential for React rendering.
-
-## Can We Use `React Fragments` Inside `React Fragments`? 🤔
-
-- Answer is **yes!!** we can nest React Fragments within other React Fragments.
-
-```javascript
-function NestedFragments() {
-  return (
-    <>
-      <h1>Title</h1>
-      <>
-        <p>Paragraph 1</p>
-        <p>Paragraph 2</p>
-      </>
-      <>
-        <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
-        </ul>
-      </>
-    </>
-  );
-}
-```
 
 ### Can We Use React Fragments Inside React Fragments? 🤔
 
@@ -235,7 +211,7 @@ function App() {
 - When `UserProfile` is called in the `App`component, React bundles all the attributes (`name` and `age` in this case) into a single `props` object.
   This `props` object is passed to the UserProfile component, which can then access its properties using `props.name`, `props.age`, etc.
 
-#### Destructuring Props ✂️
+### Destructuring Props ✂️
 
 - To make our code cleaner, we can destructure props object directly in the function signature:
 
