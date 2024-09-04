@@ -1,4 +1,4 @@
-# 1. Inception
+# 1. Inception 🌱
 
 ## Inception
 
@@ -17,7 +17,7 @@
 - Very easy, we all have worked with JS, and we know **DOM Manipulation**.
 - We know the browser provides us with a DOM API to directly interact with HTML elements and make our websites dynamic.
 
-## It's Time to add React to our code
+## It's Time to add React to our code 🚀
 
 But we aren't going to do `npm create react app` yet. Wait!
 
@@ -48,7 +48,7 @@ Now add both the CDN links to the `index.html` file in the `<script>` tags at th
 </body>
 ```
 
-As soon as we add these CDN links, we'll gain the superpower of React and ReactDOM.
+As soon as we add these CDN links, we'll gain the superpower of React and ReactDOM. 💪
 
 We can check this by opening the browser console and typing `React` and `ReactDOM`. Below is what we should see:
 
@@ -94,7 +94,7 @@ Well, React is very intuitive to understand, but for reference, here is the expl
 - So, suppose if we want to add React to a `SearchBar`, just make that element the `root`, and we can write React code for that. (But this is not recommended).
 - We generally have one `root`, and we write all our React code inside that `root`, no matter how large the application is.
 
-### Interesting Question from Akshay Saini
+### Interesting Question 🤔 from Akshay Saini
 
 What will happen if we add lots of other elements inside the `root` element where React is rendering?
 
@@ -115,7 +115,7 @@ In this case, what will happen to the heading rendered by React? Will it appear 
 - Well, the `react.render()` method overwrites everything inside the `root`.
 - This approach in React ensures that the entire content of the root element is controlled by the content specified in the `ReactDOM.render()` call.
 
-### Developer Community Practice
+### Developer Community Practice 💻
 
 In the developer community, it is common to place the text `Not Rendered` inside the root element to help identify issues with React rendering.
 
@@ -127,7 +127,7 @@ Consider the following HTML:
 </body>
 ```
 
-- And if `Not rendered` is printed on the web page, that means there is some error with React rendering, and React is not able to modify the `root`.
+- If `Not rendered` is printed on the web page, that means there is some error with React rendering, and React is not able to modify the `root`.
 
 - Since the `<script>` tags are placed at the end of the `<body>` tag, the browser first renders the HTML and displays `Not Rendered` before executing the React scripts.
 
@@ -136,7 +136,7 @@ Consider the following HTML:
 - React's core philosophy was to write everything in JS files, leaving the HTML file as it is. But the older way, with creating `React.createElement()` and then `ReactDOM.createRoot()` and so on, was not suitable for big applications.
 - It was very verbose and complicated to write this much code just for creating simple `h1` and `div` tags and then rendering them to HTML.
 
-### So JSX was built
+### So JSX was built 🎉
 
 - The introduction of JSX (JavaScript XML) in 2013 was a significant step forward in making React development more intuitive and readable.
 - JSX allows developers to write HTML-like syntax directly within JavaScript files.
@@ -144,13 +144,13 @@ Consider the following HTML:
 - Babel is the tool responsible for converting JSX code into native React code.
 - It processes JSX syntax and transforms it into plain JavaScript that browsers can understand and execute.
 
-## Here's a brief comparison of using `React.createElement()` versus JSX:
+### Here's a brief comparison of using `React.createElement()` versus JSX:
 
-### Using React.createElement():
+#### Using React.createElement():
 
 `const element = React.createElement('h1', null, 'Hello, world!');`
 
-### Using JSX:
+#### Using JSX:
 
 `const element = <h1>Hello, world!</h1>;`
 
