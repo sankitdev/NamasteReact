@@ -1,4 +1,4 @@
-# 08. Exploring the World 🌍
+# 06. Exploring the World 🌍
 
 - In this lecture our frontEnd which is a UI Microservice will be conncted with backend.
 - We will explore the world.
