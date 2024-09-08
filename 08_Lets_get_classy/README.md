@@ -245,5 +245,146 @@ This phase occurs when a component is being inserted into the DOM for the first 
     }
     ```
 
+### Example to understand this LifeCycle Method 🔄
+```javascript
+import {Component} from "react";
+import ProfileClass from "./ProfileClass";
+class About extends Component{
+    constructor(props){
+        super(props);
+        console.log("Parent - constructor")
+    }
+    componentDidMount(){
+        // API Calls
+        console.log("Parent- ComponentDidMount")
+    }
+    render(){
+        console.log("Parent- render")
+        return (
+        <div>
+            <h1>About</h1>
+        </div>
+    )
+    }
+}
+export default About
+```
+Below is Output:-
+- First constructor method is called
+- Then render
+- After render componentDidMount Called. Thats why this is best place to make an API call.
 
+![Output 1](image-2.png)
 
+Now lets add a child component inside our `About.jsx`
+```javascript
+// AboutClass.jsx
+import {Component} from "react";
+import ProfileClass from "./ProfileClass";
+class About extends Component{
+    constructor(props){
+        super(props);
+        console.log("Parent - constructor")
+    }
+    componentDidMount(){
+        // API Calls
+        console.log("Parent- ComponentDidMount")
+    }
+    render(){
+        console.log("Parent- render")
+        return (
+        <div>
+            <h1>About</h1>
+            <ProfileClass name="First-Child"/>
+        </div>
+    )
+    }
+}
+export default About
+```
+```javascript
+//ProfileClass.jsx
+import React from 'react'
+
+class ProfileClass extends React.Component{
+    constructor(props){
+        super(props);
+        //creating State
+        this.state= {
+            count : 0,
+            count2:1
+        }
+        console.log(`${this.props.name} Constructor`)
+    }
+    componentDidMount(){
+        console.log(`${this.props.name} ComponentDidMount`)
+    }
+    render(){
+        console.log(`${this.props.name} render`)
+        const {name} = this.props
+        return (
+      <>
+        <h1>Profile Class Test</h1>
+        <h2>{name}</h2>
+        <h2>Count: {this.state.count}</h2>
+        <button onClick={()=>this.setState({count:2})}>Click Here</button>
+      </>
+        )
+    }
+}
+export default ProfileClass
+```
+- **Now, what will be the output?** 🤔
+  
+- First, the parent component runs, and then its child as soon as React encounters it. This means the React lifecycle methods for the parent component will be invoked first until it reaches the child component.
+
+- As soon as React encounters a `child component` within the parent, it temporarily `pauses` the parent’s lifecycle to fully process the child component's lifecycle methods. React ensures the child component is properly constructed, rendered, and mounted before resuming and completing the parent’s lifecycle.
+
+![Output 2](image-1.png)
+
+- Here, as we can see, once React reaches the child component, it completes the child’s entire lifecycle before returning to the parent to complete its lifecycle methods. This order ensures that the child component is fully initialized and mounted before the parent component finishes mounting.
+
+- But what happens if we have more than one child? 🤔 How does the lifecycle work in that case? Let’s explore that scenario.
+
+```javascript
+...
+render(){
+return (
+        <div>
+            <h1>About</h1>
+            <ProfileClass name="First-Child"/>
+            <ProfileClass name="Second-Child"/>
+        </div>
+    )
+}
+```
+![Output 3](image.png)
+
+## React's Two Phases of Rendering ⚙️
+![React LifeCycle](image-3.png)
+- When React is rendering components, it does so in two distinct phases:
+  - **Render Phase** 🖼️
+  - **Commit Phase** ✅
+
+### Render Phase 🖼️
+
+- React first completes the **render phase**. During this phase, React prepares what needs to be rendered by calculating the changes that will be made to the UI. However, it does not actually make any changes to the DOM during this phase.
+
+- When there are multiple child components (as in the example above), React processes the render phase in **batches**. This means it can evaluate all the components that need to be updated without actually making those changes visible in the browser just yet.
+
+- The **render phase** is quick and efficient because React is only determining the changes, not applying them. This allows React to optimize performance and ensure everything is prepared correctly before moving to the next phase.
+
+### Commit Phase ✅
+
+- After completing the render phase, React then transitions to the **commit phase**. This is where the actual changes are made to the DOM, and side effects such as API calls are triggered.
+
+- The reason the render phase is completed first is because it’s a lightweight and fast process. The commit phase, on the other hand, is more **expensive** because it involves updating the DOM and performing other potentially slow operations.
+
+- If React were to move to the commit phase without completing the render phase, it might result in **inconsistencies** in the UI, as the DOM could be updated before React has fully determined what changes need to be made.
+
+- By separating these two phases, React ensures that it can efficiently prepare and then accurately apply changes, leading to a smoother and more consistent user experience.
+
+## Let's Make an API Call
+```javascript
+  
+```
