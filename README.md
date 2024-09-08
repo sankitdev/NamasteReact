@@ -35,9 +35,9 @@ Before you start, ensure you have the following installed:
 
 1. **Clone the Repository:**
 
-   ```bash
-   git clone https://github.com/sankitdev/NamasteReact.git
-   ```
+```bash
+git clone https://github.com/sankitdev/NamasteReact.git
+```
 
 2. **Clone the Repository:**
 
