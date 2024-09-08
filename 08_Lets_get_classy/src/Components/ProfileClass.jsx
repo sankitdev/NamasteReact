@@ -23,6 +23,12 @@ class ProfileClass extends React.Component{
         })
         console.log("Child - ComponentDidmount after api call")
     }
+    componentDidUpdate(){
+        console.log("ComponentDidupdate")
+    }
+    componentWillUnmount(){
+        console.log("Component Will Unmount")
+    }
     render(){
         console.log("childcomponent render")
         const{userInfo} = this.state
