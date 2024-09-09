@@ -507,6 +507,93 @@ class MyComponent extends React.Component {
 #### Class-based Component
 ![alt text](image-8.png)
 
-### How many pages does a SPA has? (Website Built on React)
-- Single Page. Only one page eventually we just chnagingn the component or page but the page is only one. 
-- So when we change page we need to cleanup lots of things
+### How Many Pages Does a SPA Have? (Website Built on React) 📝
+
+- **Single Page**: A Single Page Application (SPA) has only one page. Although it might seem like you are navigating between different pages, you are actually just changing the components or views within the same page.
+- **Component Cleanup**: When you change views or components in an SPA, it's important to clean up resources such as event listeners, intervals, or any other side effects to avoid memory leaks and ensure smooth performance.
+
+### Unmounting in `useEffect()` 🧹
+
+In React functional components, the `useEffect()` hook is used to manage side effects like data fetching, subscriptions, and manual DOM manipulations. When a component unmounts, it's important to clean up these side effects to prevent memory leaks and other issues.
+
+#### **How Unmounting Works in `useEffect()`**
+
+- **Cleanup Function**: Inside `useEffect()`, you can return a function that React will run when the component unmounts or before the effect is re-executed if the dependencies change. This cleanup function is essential for cleaning up resources that were set up when the component was mounted or during the previous effect.
+
+#### **Example: Clearing a Timer**
+
+```javascript
+import { useEffect } from "react";
+
+function MyComponent() {
+  useEffect(() => {
+    // Setup: Starting an interval timer
+    const timer = setInterval(() => {
+      console.log("Timer running");
+    }, 1000);
+
+    // Cleanup: Clearing the timer when the component unmounts
+    return () => {
+      clearInterval(timer);
+      console.log("Timer cleared");
+    };
+  }, []); // Empty dependency array means the effect runs once and the cleanup on unmount
+
+  return <div>My Component</div>;
+}
+
+// Note: In strict mode side Effects run two times and unmouting doesn't works properly
+```
+### Why Can You Use `async` Before `componentDidMount()` but Not Before `useEffect()`? 🤔
+
+#### **`componentDidMount()` in Class Components**
+- In class components, `componentDidMount()` is a method where you can perform side effects like data fetching. Since it’s a regular method, you can easily make it `async` by adding the `async` keyword before it:
+
+    ```javascript
+    class MyComponent extends React.Component {
+      async componentDidMount() {
+        const data = await fetchData();
+        this.setState({ data });
+      }
+
+      render() {
+        return <div>{this.state.data}</div>;
+      }
+    }
+    ```
+- Here, marking `componentDidMount()` as `async` allows you to use `await` inside it, which simplifies handling asynchronous operations like fetching data.
+
+#### **`useEffect()` in Functional Components**
+- `useEffect()` is a React hook used in functional components to perform side effects, similar to `componentDidMount()`. However, you **cannot** directly make `useEffect()` itself `async`:
+
+    ```javascript
+    // This is not allowed
+    useEffect(async () => {
+      const data = await fetchData();
+    }, []);
+    ```
+
+- **Why Not?** 
+  - `useEffect()` expects a cleanup function (or nothing) to be returned, but if the effect callback is an `async` function, it would return a promise instead of a cleanup function. This would break the intended behavior of `useEffect()`.
+  - The `async` function inherently returns a promise, which is not what React expects from the `useEffect()` hook.
+
+#### **The Workaround**
+- Instead of making `useEffect()` itself `async`, you can define an `async` function inside the `useEffect()` and call it:
+
+    ```javascript
+    useEffect(() => {
+      const fetchData = async () => {
+        const data = await getData();
+        setData(data);
+      };
+
+      fetchData();
+    }, []);
+    ```
+
+- **Why This Works**:
+  - By defining and calling the `async` function inside `useEffect()`, you avoid returning a promise from the effect. The `useEffect()` itself remains synchronous, while the asynchronous operations are handled inside the inner `async` function.
+
+#### **Key Takeaways**:
+- **`componentDidMount()`**: Can be made `async` because it’s a regular method and can return a promise.
+- **`useEffect()`**: Cannot be made `async` directly because it would return a promise, which conflicts with its expected behavior. Instead, you define an `async` function inside the effect to handle asynchronous code.
