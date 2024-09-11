@@ -10,6 +10,27 @@
 - **Data is the New Oil**: Handle your data with care, as it’s a valuable resource in modern applications.
 - **Use it Wisely**: Optimize data usage to enhance performance and user experience.
 
+### UI Layer in React 🖼️
+
+- **Definition**: Manages the presentation and user interface, handling how data is displayed and interacted with.
+- **Components**: Built using React components that define the look and behavior of the UI.
+- **Purpose**: Displays data meaningfully to the user and handles user interactions, passing events to the data layer.
+- **Interaction**: Receives data as props or through context and sends user inputs back to the data layer.
+
+### Data Layer in React 📊
+
+- **Definition**: Manages state, data fetching, and business logic, dealing with data storage, retrieval, and processing.
+- **State Management**: Uses hooks (`useState`, `useReducer`) or libraries (Redux, Zustand) to manage application state.
+- **Data Fetching**: Handles API calls and other data sources, providing data to the UI layer.
+- **Separation**: Keeps business logic separate from UI logic for better organization and maintainability.
+- **Interaction**: Supplies data to the UI layer and updates state based on user actions or external events.
+
+### Key Differences
+
+- **Focus**: UI layer focuses on presentation, while the data layer focuses on data management.
+- **Logic**: UI layer handles how data looks; data layer handles how data is fetched and managed.
+- **Interaction**: UI layer displays data and sends user actions to the data layer for state updates.
+
 ## What are Props? 📦
 
 - **Props**: Props are pieces of data that a parent component passes down to its child components. They allow components to communicate and share information in React.
